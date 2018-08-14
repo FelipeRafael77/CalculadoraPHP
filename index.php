@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="css\calc.css">
 <center>
 <h1>CalcPHP</h1>
-<form name="f1"><br>
+<form action="" method="post" name="f1"><br>
 <input type="text" name="txtcaixa1">
 <br>
 <input type="text" name="txtcaixa2" value="0">
@@ -41,6 +41,35 @@
 <br>
 </form>
 </center>
+
+<?php
+$url = 'http://localhost/www/index.php';
+$campos = array(
+    'txtcaixa1'=>urlencode(""),
+	'txtcaixa2'=>urlencode(""),
+	'divisao'=>urlencode(onclick='divisao('/')'),
+	'multiplicacao'=>urlencode(onclick='multiplicacao('*')'),
+	'subtracao'=>urlencode(onclick='subtracao('-')'),
+	'soma'=>urlencode(onclick='soma('+')'),
+	'igual'=>urlencode(onclick='calcular()')
+
+);
+foreach($campos as $name => $valor) {
+    $string_campos .= $name . '=' . $valor . '&';
+}
+$string_campos = rtrim($string_campos,'&');
+$ch = curl_init();
+curl_setopt($ch,CURLOPT_URL,$url);
+curl_setopt($ch,CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt($ch,CURLOPT_POST,count($campos));
+curl_setopt($ch,CURLOPT_POSTFIELDS,$string_campos);
+$resultado = curl_exec($ch);
+curl_close($ch);
+echo $resultado;
+
+
+?>
+
 </body>
 </head>
 </html>

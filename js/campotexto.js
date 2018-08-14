@@ -24,3 +24,11 @@ var apagar = false;
 			document.f1.txtcaixa2.value = caixa2 + n;
 		}
 	}
+	function calcular(){
+		var caixa1 = document.f1.txtcaixa1.value;
+		var caixa2 = document.f1.txtcaixa2.value;
+		document.f1.txtcaixa2.value = eval(caixa1 + caixa2);
+		document.f1.txtcaixa1.value = "";
+		apagar = true;
+		blocdel = true;
+	}
