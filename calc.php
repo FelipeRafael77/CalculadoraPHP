@@ -1,24 +1,37 @@
+<!DOCTYPE HTML>
+<html lang = "pt-br">
+<head>
+   <title>Exemplo</title>
+   <meta charset = "UTF-8">
+</head>
+<body>
+   <form action="" method="post" >
+      Primeiro Numero: <input name="num1" type="text"><br>
+      Segundo numero: <input name="num2" type="text"><br>
+      <input type="submit" name="operacao" value="+">     
+      <input type="submit" name="operacao" value="-">     
+      <input type="submit" name="operacao" value="*">     
+      <input type="submit" name="operacao" value="/">     
+   </form> 
 <?php
-   
-    function calcular($tp)
-    {
-       
-     $txtcaixa1 = (float) $_POST['txtcaixa1'];
-     $txtcaixa22 = (float) $_POST['txtcaixa2'];
-   
-    $resultado = 0;
-       
-    if ($tp == 1){
-        $resultado = $txtcaixa1 + $txtcaixa2;
-       
-    }else if ($tp == 2){
-        $resultado = (float) ($txtcaixa1 - $txtcaixa2);
-       
-    }else if ($tp == 3){
-        $resultado = (float) ($txtcaixa1 * $txtcaixa2);
-       
-    }else if ($tp == 4){
-        $resultado = (float) ($txtcaixa1 / $txtcaixa2);
-       
-    }
-}
+
+   $a = $_POST['num1'];
+   $b = $_POST['num2'];
+   $op= $_POST['operacao'];
+
+   if( !empty($op) ) {
+      if($op == '+')
+         $c = $a + $b;
+      else if($op == '-')
+         $c = $a - $b;
+      else if($op == '*')
+         $c = $a*$b;
+      else
+         $c = $a/$b;
+
+      echo "O resultado da opera&ccedil;&atilde;o &eacute;: $c";
+   }
+
+?>       
+</body>
+</html>
