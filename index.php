@@ -1,5 +1,3 @@
-
-
 <html>
 
 <head>
@@ -38,6 +36,8 @@
 
 	</form>
 
+<div class="res">
+
 <?php
 
 
@@ -67,6 +67,8 @@ echo "O resultado é: $resultado";
 
 
 ?>
+
+</div>
 </body>
 
 </html>
