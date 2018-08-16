@@ -63,7 +63,7 @@ switch($tipo)
 }
 
 
-echo "O resultado é: $resultado";
+echo "O resultado é : $resultado";
 
 
 ?>
